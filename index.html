@@ -3,267 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Work From Home – Live Streaming Job</title>
+<title>Radhika Friendship Club</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0b0033;
+  color:#fff;
+  display:flex;
+  justify-content:center;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b0033;
-    color: #fff;
-    display: flex;
-    justify-content: center;
+.container{
+  width:100%;
+  max-width:420px;
+  padding:15px;
 }
 
-.container {
-    width: 100%;
-    max-width: 420px;
-    padding: 15px;
+.card{
+  background:linear-gradient(180deg,#2b006f,#140033);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 0 25px rgba(0,0,0,.5);
 }
 
-.card {
-    background: linear-gradient(180deg, #2b006f, #140033);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+h1{text-align:center;font-size:24px;margin:10px 0 5px}
+h2{text-align:center;font-size:18px;color:#ff4dd2;margin:0}
+.sub{text-align:center;margin-top:6px;font-size:14px}
+
+.salary{
+  text-align:center;
+  font-size:22px;
+  color:#ffd700;
+  font-weight:bold;
+  margin:15px 0;
 }
 
-h1 {
-    text-align: center;
-    font-size: 24px;
-    margin: 10px 0 5px;
+/* IMAGE */
+.image-box{margin:25px 0}
+.image-box img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:
+    0 0 25px rgba(255,0,255,.6),
+    0 0 45px rgba(0,255,255,.4),
+    0 0 70px rgba(138,43,226,.6);
 }
 
-h2 {
-    text-align: center;
-    font-size: 18px;
-    color: #ff4dd2;
-    margin: 0;
+/* BUTTON */
+.btn-wrap{display:flex;justify-content:center;margin:25px 0}
+.btn{
+  width:100%;
+  max-width:320px;
+  padding:15px;
+  background:#00ff9d;
+  color:#000;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  border-radius:40px;
+  text-decoration:none;
 }
 
-.sub {
-    text-align: center;
-    margin-top: 6px;
-    font-size: 14px;
+.section-title{
+  color:#ff4dd2;
+  font-weight:bold;
+  margin:20px 0 10px;
 }
 
-.salary {
-    text-align: center;
-    font-size: 22px;
-    color: #ffd700;
-    font-weight: bold;
-    margin: 15px 0;
+/* GREEN TICK (UNCHANGED) */
+.apply-list{list-style:none;padding:0;margin:0}
+.apply-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  font-size:15px;
+  padding:8px 0;
 }
 
-.image-box {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 25px 0;
+.tick{
+  width:24px;
+  height:24px;
+  flex-shrink:0;
+  transform:rotate(-8deg);
+  filter:
+    drop-shadow(0 0 6px rgba(0,255,157,.9))
+    drop-shadow(0 0 14px rgba(0,255,157,.6));
+}
+.tick path{
+  fill:none;
+  stroke:#00ff9d;
+  stroke-width:3.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.tick .inner{
+  stroke:#009e6f;
+  stroke-width:1.8;
 }
 
-.image-box img {
-    width: 100%;
-    max-width: 920px;
-    aspect-ratio: 920 / 1080;
-    object-fit: cover;
-    border-radius: 18px;
-    box-shadow:
-        0 0 25px rgba(255, 0, 255, 0.6),
-        0 0 45px rgba(0, 255, 255, 0.4),
-        0 0 70px rgba(138, 43, 226, 0.6);
+/* ===== FULL SCREEN POPUP ===== */
+#forcePopup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.95);
+  z-index:999999;
+  display:none;
+  justify-content:center;
+  align-items:center;
 }
-
-.btn-wrap {
-    display: flex;
-    justify-content: center;
-    margin: 25px 0;
+#forcePopup .box{
+  background:#fff;
+  color:#000;
+  padding:25px;
+  border-radius:18px;
+  max-width:330px;
+  text-align:center;
 }
-
-.btn {
-    width: 100%;
-    max-width: 320px;
-    padding: 15px;
-    background: #00ff9d;
-    color: #000;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 40px;
-    text-decoration: none;
-}
-
-.section-title {
-    color: #ff4dd2;
-    font-weight: bold;
-    margin: 18px 0 8px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-ul li {
-    padding: 7px 0;
-    font-size: 15px;
-}
-
-ul li::before {
-    content: "✔ ";
-    color: #00ff9d;
-    font-weight: bold;
-}
-
-/* ===== FULL SCREEN FORCE POPUP ===== */
-#forcePopup {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.94);
-    z-index: 999999;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-#forcePopup .box {
-    background: #fff;
-    color: #000;
-    padding: 25px;
-    border-radius: 18px;
-    max-width: 330px;
-    text-align: center;
-}
-
-#forcePopup h3 {
-    margin: 0 0 10px;
-    font-size: 20px;
-}
-
-#forcePopup p {
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-#forcePopup button {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #00c853;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
+#forcePopup button{
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  font-weight:bold;
+  background:#00c853;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<!-- FULL SCREEN FORCE POPUP -->
+<!-- FULL SCREEN POPUP -->
 <div id="forcePopup">
-    <div class="box">
-        <h3>Open in Browser</h3>
-        <p>
-            Please tap ok to open this website.<br><br>
-            Please <b>Tap / Ok</b> To Open.
-        </p>
-        <button id="openBrowserBtn">OK</button>
-    </div>
+  <div class="box">
+    <h3>Open in Browser</h3>
+    <p>
+      Please Tap Ok To Open In Chrome.<br>
+      <b>Tap / Ok</b> To Open.
+    </p>
+    <button id="openBrowserBtn">OK</button>
+  </div>
 </div>
 
 <div class="container">
-    <div class="card">
+<div class="card">
 
-        <h1>🤝 FRIENDSHIP CLUB</h1>
-        <h2>FUN WITH ENTERTAINMENT</h2>
+<h1>🤝 FRIENDSHIP CLUB</h1>
+<h2>FUN AND ENTERTAINMENT</h2>
+<div class="sub">🌍 India's No1 Friendship Club</div>
+<div class="salary">CHAT WITH US ON WHATSAPP</div>
 
-        <div class="sub">🌍 India's no1 Platform</div>
+<div class="image-box">
+  <img src="https://i.ibb.co/Xkr1bR9Y/1670.jpg" alt="Live Streaming">
+</div>
 
-        <div class="salary">💰 ₹16,000 – ₹24,000 / approximately</div>
+<div class="btn-wrap">
+  <!-- ✅ WHATSAPP BUTTON WITH NUMBER + MESSAGE -->
+  <a class="btn"
+     href="https://wa.me/917830038748?text=I%20got%20you%27re%20number%20on%20Instagram%20profile">
+     💬 Chat On WhatsApp Now
+  </a>
+</div>
 
-        <div class="image-box">
-            <img src="https://i.ibb.co/Xkr1bR9Y/1670.jpg" alt="Live Streaming">
-        </div>
+<div class="section-title">WHO CAN CONTACT</div>
+<ul class="apply-list">
 
-        <div class="btn-wrap">
-            <a href="https://wa.me/917830038748?text=i%20got%20your%20number%20on%20instagram%20profile" class="btn">
-                💬 WhatsApp Now
-            </a>
-        </div>
+<li>
+<svg class="tick" viewBox="0 0 24 24">
+  <path d="M4 13 L9 18 L20 6"/>
+  <path class="inner" d="M4 13 L9 18 L20 6"/>
+</svg>
+Part-Time Opportunity
+</li>
 
-        <div class="section-title">WHO CAN CONTACT</div>
-        <ul>
-            <li>Boys / Men Any (18+ Only)</li>
-            <li>Fresher & Experienced Both</li>
-            <li>Professionals / Businessman</li>
-            <li>Basic Hindi / English</li>
-        </ul>
+<li>
+<svg class="tick" viewBox="0 0 24 24">
+  <path d="M4 13 L9 18 L20 6"/>
+  <path class="inner" d="M4 13 L9 18 L20 6"/>
+</svg>
+Trusted High-Profile Madam Network
+</li>
 
-        <div class="section-title">DETAILS</div>
-        <ul>
-            <li>Free Time enjoy</li>
-            <li>Flexible Timing (3–4 Hours)</li>
-            <li>Income via Tips, Gifts & Bonuses</li>
-        </ul>
+<li>
+<svg class="tick" viewBox="0 0 24 24">
+  <path d="M4 13 L9 18 L20 6"/>
+  <path class="inner" d="M4 13 L9 18 L20 6"/>
+</svg>
+Earnings: ₹16,000-₹24,000 per assignment (performance based)
+</li>
 
-        <div class="section-title">HIGHLIGHTS</div>
-        <ul>
-            <li>approx Income ₹16k – ₹24k+</li>
-            <li>Daily / Fast Payout</li>
-            <li>Extra Performance Bonus</li>
-        </ul>
+<li>
+<svg class="tick" viewBox="0 0 24 24">
+  <path d="M4 13 L9 18 L20 6"/>
+  <path class="inner" d="M4 13 L9 18 L20 6"/>
+</svg>
+Flexible work • Attractive incentives DM to apply
+</li>
 
-        <div class="section-title">PRIVACY & SAFETY</div>
-        <ul>
-            <li>100% Privacy</li>
-            <li>No Personal Id Required</li>
-            <li>Training & Full Support</li>
-            <li>Safe & Professional Work</li>
-        </ul>
+</ul>
 
-    </div>
+</div>
 </div>
 
 <script>
-(function () {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isInApp =
-        ua.includes("Instagram") ||
-        ua.includes("FBAN") ||
-        ua.includes("FBAV");
+document.addEventListener("DOMContentLoaded",function(){
+  const ua = navigator.userAgent.toLowerCase();
+  const isInApp =
+    ua.includes("instagram") ||
+    ua.includes("fbav") ||
+    ua.includes("fban");
 
-    if (isInApp) {
+  if(isInApp){
+    history.pushState(null,null,location.href);
+    window.onpopstate=function(){history.go(1)};
+    document.body.style.overflow="hidden";
+    document.getElementById("forcePopup").style.display="flex";
 
-        /* 🔒 BACK BUTTON BLOCK (ONLY 2 LINES) */
-        history.pushState(null, null, location.href);
-        window.onpopstate = function () { history.go(1); };
-
-        document.body.style.overflow = "hidden";
-        const popup = document.getElementById("forcePopup");
-        popup.style.display = "flex";
-
-        document.getElementById("openBrowserBtn").onclick = function () {
-            const url = window.location.href;
-
-            // ANDROID → CHROME
-            if (/Android/i.test(ua)) {
-                window.location.href =
-                    "intent://" + url.replace(/^https?:\/\//, "") +
-                    "#Intent;scheme=https;package=com.android.chrome;end";
-            }
-            // IOS → SAFARI
-            else if (/iPhone|iPad|iPod/i.test(ua)) {
-                window.location.href = url;
-            }
-        };
-    }
-})();
+    document.getElementById("openBrowserBtn").onclick=function(){
+      const url = location.href;
+      if(ua.includes("android")){
+        location.href =
+          "intent://" + url.replace(/^https?:\/\//,"") +
+          "#Intent;scheme=https;package=com.android.chrome;end";
+      }else{
+        location.href = url;
+      }
+    };
+  }
+});
 </script>
 
 </body>
